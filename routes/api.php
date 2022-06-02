@@ -17,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get("/checkapi",function(){
+    return "api working";
+});
+Route::get("/checkapi/{apikey}/{username}",function($apikey,$username){
+    $data=[];
+    $data['apikey']=$apikey;
+    $data['username']=$username;
+    return view("api")->with($data);
+});
